@@ -1,0 +1,50 @@
+1. create database myshop;
+2. create table users (
+    -> id int auto_increment,
+    -> name varchar(255),
+    -> email varchar(255),
+    -> password varchar(255),
+    -> primary key(id)
+    -> );
+
+   create table items (
+    -> id int auto_increment,
+    -> name varchar(255),
+    -> description varchar(255),
+    -> price int,
+    -> stock int,
+    -> category_id int,
+    -> primary key(id),
+    -> foreign key(category_id) references categories(id)
+    -> );
+
+create table categories(
+    -> id int auto_increment,
+    -> name varchar(255),
+    -> primary key(id)
+    -> );
+
+3. INSERT INTO users (name, email, password) VALUES ('John Doe', 'john@doe.com', 'john123');                  
+   INSERT INTO users (name, email, password) VALUES ('Jane Doe', 'jane@doe.com', 'jenita123');
+
+INSERT INTO categories (name) VALUES ("gadget"),("cloth"),("men"),("women"),("branded");
+
+INSERT INTO items VALUES (
+	null,"Sumsang b50", "hp keren dari merk sumsang", 4000000,100,1)
+	;
+
+INSERT INTO items VALUES (
+	null,"Uniklooh", "baju keren dari brand ternama", 500000, 50, 2)
+	;
+
+INSERT INTO items VALUES (
+	null, "IMHO Watch", "jam tangan anak yang jujur banget", 2000000, 10, 1)
+	;
+
+4.
+a. SELECT name, email FROM users;
+b. SELECT * FROM item where price > 1000000;
+   SELECT * FROM item where name like '%uniklo%';
+c. SELECT items.name, items.description, items.price, items.stock, items.category_id, categories.name from items join categories on items.category_id = categories.id;
+
+5. Update items set price = 2500000 where id=1 	
